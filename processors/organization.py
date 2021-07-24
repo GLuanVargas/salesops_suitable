@@ -8,15 +8,9 @@ class Organization:
 
     def __init__(self, id, current, previous):
         logger.info('Objeto organization instanciado')
-
         self.id = id
         self.current = current
         self.previous = previous
-
-    def check_updates(self):
-
-        return False
-        # functions to check and update
 
     def check_cnpj(self):
         logger.info('function de check cnpj chamada')
@@ -26,7 +20,12 @@ class Organization:
 
         if current_cnpj != previous_cnpj:
             logger.info('cnpj anterior diferente do atual')
-
+            logger.info('CNPJ ATUAL')
+            logger.info(current_cnpj)
+            
+            logger.info('CNPJ ANTERIOR')
+            logger.info(previous_cnpj)
+            
             self.update_cnpj()
 
             return True
@@ -80,7 +79,6 @@ class Organization:
         url_update_org = 'https://' + company_domain + '.pipedrive.com/api/v1/organizations/' + str(self.id) +  '?api_token=' + api_token
 
         requests.put(url_update_org, pipedrive_data)
-
         logger.info('Procedimento finalizado')
 
         return True
