@@ -24,7 +24,7 @@ class Message:
 
         x = requests.post(url, data = obj)
         logger.info(x.text)
-
+        logging.debug("Enviando msg")
 
     def dayone_messages(self):
 
@@ -45,6 +45,5 @@ class Message:
 
         for m in msgs:
             self.send_msg('555199959269', m)
-            time.sleep(randint(2,4))
         
         logger.debug("Finalizando ciclo envio messages dayone")

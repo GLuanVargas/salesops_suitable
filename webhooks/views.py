@@ -35,7 +35,7 @@ def organization(request):
 
 @require_POST
 def deal(request):
-    logger.info('Entrou na request ORGANIZATION')
+    logger.info('Entrou na request DEAL')
 
     if request.body:
         logger.info('request com dados')
@@ -51,7 +51,7 @@ def deal(request):
 
         deal = Deal(deal_id, current_org, previous_org)
         deal.check_actions()
-        
+
     else:
         logger.info('request vazia')
 
